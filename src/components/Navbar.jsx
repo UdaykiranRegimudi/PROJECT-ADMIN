@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import {MdNotificationsActive} from 'react-icons/md'
 import LogoutButton from "./LogoutButton";
 
 const Navbar = () => {
@@ -39,6 +40,7 @@ const Navbar = () => {
                   {item.name}
                 </NavLink>
               ))}
+              
             </div>
           </div>
 

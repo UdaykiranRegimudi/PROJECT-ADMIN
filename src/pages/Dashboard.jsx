@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Graphs from "./Graphs";
+
 import './index.css'
 
 
@@ -17,7 +18,7 @@ const Dashboard = () => {
         <h4 style={{fontSize:'40px',color:'white',fontStyle:'italic'}} className="pl-5 pt-3">Dashboard</h4>
         <div style={{display:'flex',justifyContent:'spcae-around',padding:'30px'}}>
             <div className="ml-5 mr-5" style={{width:'22%',marginLeft:'5vh',marginRight:'10vh'}}>
-              <div style={{backgroundColor:'#973ade',textAlign:'center',borderRadius:'15px'}} className="p-4">
+              <div style={{backgroundColor:'green',textAlign:'center',borderRadius:'15px'}} className="p-4">
                 <h3 style={{color:'white',fontWeight:'bold'}}>NUMBER OF STUDENTS</h3>
                 <img style={{marginLeft:'80px'}} className="mt-5 mb-5" src="https://pixner.net/healthease-dashboard/healthease-dashboard/assets/img/icon/doctor.png"/>
                 <div style={{display:'flex'}}>
@@ -27,7 +28,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="ml-5 mr-5" style={{width:'23%',marginRight:'10vh'}}>
-              <div style={{backgroundColor:'#3adade',textAlign:'center',borderRadius:'15px',height:'35.5vh'}} className="p-4">
+              <div style={{backgroundColor:'red',textAlign:'center',borderRadius:'15px',height:'35.5vh'}} className="p-4">
                 <h3 style={{color:'white',fontWeight:'bold'}}>NUMBER OF DEPARTMENTS</h3>
                 <img style={{marginLeft:'80px'}} className="mt-5 mb-5" src="https://pixner.net/healthease-dashboard/healthease-dashboard/assets/img/icon/setting.png" />
                 <div style={{display:'flex'}}>
@@ -37,7 +38,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="ml-5 mr-5" style={{width:'22%',marginRight:'10vh'}}>
-              <div style={{backgroundColor:'#07e71d',textAlign:'center',borderRadius:'15px',height:'35.5vh'}} className="p-4">
+              <div style={{backgroundColor:'blue',textAlign:'center',borderRadius:'15px',height:'35.5vh'}} className="p-4">
                 <h3 style={{color:'white',fontWeight:'bold'}}>COLLEGE RANKING</h3>
                 <img src="https://cdn-icons-png.flaticon.com/512/747/747274.png" style={{height:'7vh',marginLeft:'80px'}} className="mt-5 mb-5" />
                 <div style={{display:'flex'}}>
@@ -47,7 +48,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="ml-5 mr-5" style={{width:'22%'}}>
-              <div style={{backgroundColor:'#f26703',textAlign:'center',borderRadius:'15px'}} className="p-4">
+              <div style={{backgroundColor:'orange',textAlign:'center',borderRadius:'15px'}} className="p-4">
                 <h3 style={{color:'white',fontWeight:'bold'}}>STUDENTS REQUESTS</h3>
                 <img src="https://pixner.net/healthease-dashboard/healthease-dashboard/assets/img/icon/paper.png" style={{marginLeft:'80px'}} className="mt-5 mb-5"/>
                 <div style={{display:'flex'}}>
@@ -74,6 +75,7 @@ const Dashboard = () => {
             </div>}
           </div>
         </div>
+        
     </div>
   );
 };

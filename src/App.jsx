@@ -14,13 +14,13 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<CollegeLogin />} />
-        <Route path="/register" element={<CollegeRegister />} />
-        <Route path="/student-registration" element={<StudentRegister />} />
-        <Route path="/students" element={<StudentsData />} />
-        <Route path="/profile" element={<CollegeProfile />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route excart path="/" element={<Dashboard />} />
+        <Route excart path="/login" element={<CollegeLogin />} />
+        <Route excart path="/register" element={<CollegeRegister />} />
+        <Route excart path="/student-registration" element={<StudentRegister />} />
+        <Route excart path="/students" element={<StudentsData />} />
+        <Route excart path="/profile" element={<CollegeProfile />} />
+        <Route excart path="/projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
