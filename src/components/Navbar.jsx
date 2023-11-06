@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className={
             toggle
               ? "block float-right shadow-md shadow-black h-fit w-44 bg-gray-700 p-2 rounded-md"
@@ -77,7 +77,7 @@ const Navbar = () => {
             ))}
             <LogoutButton />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
