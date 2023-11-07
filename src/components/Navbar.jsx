@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import {MdNotificationsActive} from 'react-icons/md'
+import { MdNotificationsActive } from "react-icons/md";
 import LogoutButton from "./LogoutButton";
 
 const Navbar = () => {
@@ -18,7 +18,15 @@ const Navbar = () => {
     { name: "Something", href: "/algo" },
   ];
 
-  const [toggle, setToggle] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className="bg-gray-700">
@@ -40,12 +48,11 @@ const Navbar = () => {
                   {item.name}
                 </NavLink>
               ))}
-              
             </div>
           </div>
 
           {/* Need to change this  after authentication*/}
-          <div onClick={() => setToggle(!toggle)} className="ml-6 mr-6">
+          <div onClick={toggleDropdown} className="ml-6 mr-6">
             <div className="flex bg-gray-500 px-2 rounded-md cursor-pointer">
               <div className="w-auto h-auto px-3 my-1 bg-black rounded-md" />
               <div className="text-white rounded-md px-3 py-2 text-md font-bold">
@@ -55,29 +62,46 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        {/* <div
-          className={
-            toggle
-              ? "block float-right shadow-md shadow-black h-fit w-44 bg-gray-700 p-2 rounded-md"
-              : "hidden"
-          }
-        >
-          <div className="flex flex-col">
-            {profileNav.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.href}
-                className={({ isActive }) =>
-                  isActive
-                    ? "bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                }
-                children={item.name}
-              />
-            ))}
-            <LogoutButton />
+        {isOpen && (
+          <div className="origin-top-right absolute right-0 top-[48px] mt-2 mr-2 w-60 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <ul
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="options-menu"
+            >
+              <div className="block w-full px-2 py-1 text-sm">
+                <li className="bg-gray-200 px-2 py-1">Something</li>
+              </div>
+              <li>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={closeDropdown}
+                >
+                  Option 1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={closeDropdown}
+                >
+                  Option 1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={closeDropdown}
+                >
+                  Option 1
+                </a>
+              </li>
+            </ul>
           </div>
-        </div> */}
+        )}
       </div>
     </div>
   );
