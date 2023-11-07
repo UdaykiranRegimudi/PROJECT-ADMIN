@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import StudentRegister from "./pages/StudentRegister";
 import CollegeProfile from "./pages/CollegeProfile";
-import Projects from "./pages/Projects";
+import Projects from "./pages/Project";
 import NotFound from "./pages/NotFound";
 import CollegeRegister from "./pages/CollegeRegister";
 import Dashboard from "./pages/Dashboard";
 import CollegeLogin from "./pages/CollegeLogin";
 import StudentsData from "./pages/StudentsData";
+import Problems from "./pages/Problem";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route excart path="/students" element={<StudentsData />} />
         <Route excart path="/profile" element={<CollegeProfile />} />
         <Route excart path="/projects" element={<Projects />} />
+        <Route excart path="/problems" element={<Problems/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
