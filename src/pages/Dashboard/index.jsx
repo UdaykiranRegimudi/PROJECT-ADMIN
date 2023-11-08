@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Graphs from "./Graphs";
+import Graphs from "../Graphs";
 
 import './index.css'
 

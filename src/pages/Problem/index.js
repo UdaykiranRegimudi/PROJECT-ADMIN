@@ -3,10 +3,12 @@ import Papa from 'papaparse'
 import Data from './sih.csv'
 import './index.css'
 
+
 const Problems = () => {
 
   const [data,setData] = useState()
   const [status,setStatus] = useState(false)
+  const [sec,setSec] = useState('All')
 
   useEffect(() =>{
     const callFunction =async () =>{
@@ -28,16 +30,47 @@ const Problems = () => {
     callFunction()
   },[])
 
+  const setSelection = (e) =>{
+    setSec(e.target.value)
+  }
+
+  const searchChange = (e) =>{
+    
+   if(status){
+        if(sec == 'Category'){
+            let list = data.filter(each =>{
+                if(each.Category != undefined && each.Category != []){
+                    each.Category.toLowerCase().includes(e.target.value.toLowerCase())
+                }
+            }
+            )
+            console.log(list)
+        }else{
+            let list = data.filter(each =>
+                each.Organization.toLowerCase().includes(e.target.value.toLowerCase()),
+            )
+            console.log(list)
+        }
+    
+   }
+  }
+
 
   return(
     <div style={{backgroundColor:'white',minHeight:'100vh',backgroundSize:'cover'}} className="m-2 p-3">
         <div style={{display:'flex',flexDirection:'column'}}>
             <h2 style={{textAlign:'center',color:'black',fontSize:'40px',fontStyle:'italic'}}>Problems</h2>
-            <hr style={{backgroundColor:'black',height:'1px',width:'80%',alignSelf:'center'}} className="mt-3"/>
+            <hr style={{backgroundColor:'black',height:'1px',width:'80%',alignSelf:'center'}} className="mt-3 "/>
         </div>
         <div style={{display:'flex'}}>
             <div style={{width:'20%'}}>
-                <h1>Uday</h1>
+                <h1 style={{fontSize:'25px'}} className="mt-5">Filter Elements</h1>
+                <select className="form-control mt-5" onChange={setSelection}>
+                    <option>All</option>
+                    <option>Category</option>
+                    <option>Organization</option>
+                </select>
+                <input type="text" placeholder="Search" onChange={searchChange} className="form-control mt-3"/>
             </div>
             <table
                 className="table table-hover mdc-data-table__table mt-5"
@@ -53,8 +86,7 @@ const Problems = () => {
                     scope="col"
                     style={{textAlign: 'center',color:'white'}}
                 >
-                    {' '}
-                    SI.NO
+                    <button>SI.NO</button>
                 </th>
                 <th
                     className="mdc-data-table__header-cell"
@@ -94,9 +126,7 @@ const Problems = () => {
                 </tbody>
             </table>
         </div>
-       {/* {status &&  data.map(each =>(
-            <h1>{each.Index}</h1>
-        ))} */}
+       
     </div>
   )
 };
