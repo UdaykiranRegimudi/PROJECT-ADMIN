@@ -1,5 +1,7 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 const CollegeLogin = () => {
   return (
     <div className="h-[calc(100vh-64px)]  flex justify-center items-center">
@@ -25,6 +27,12 @@ const CollegeLogin = () => {
             />
           </div>
         </form>
+        <p className="mt-1">
+          Don't have an account??{" "}
+          <NavLink to="/register" className="text-blue-600">
+            Create Account
+          </NavLink>
+        </p>
       </div>
     </div>
   );

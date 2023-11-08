@@ -55,7 +55,7 @@ const Navbar = () => {
           <div onClick={toggleDropdown} className="ml-6 mr-6">
             <div className="flex bg-gray-500 px-2 rounded-md cursor-pointer">
               <div className="w-auto h-auto px-3 my-1 bg-black rounded-md" />
-              <div className="text-white rounded-md px-3 py-2 text-md font-bold">
+              <div className="text-white rounded-md px-3 py-[10px] text-md font-bold">
                 Profile
               </div>
               <IoIosArrowDropdownCircle className="my-3" />
