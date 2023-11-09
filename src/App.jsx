@@ -18,11 +18,15 @@ function App() {
         <Route excart path="/" element={<Dashboard />} />
         <Route excart path="/login" element={<CollegeLogin />} />
         <Route excart path="/register" element={<CollegeRegister />} />
-        <Route excart path="/student-registration" element={<StudentRegister />} />
+        <Route
+          excart
+          path="/student-registration"
+          element={<StudentRegister />}
+        />
         <Route excart path="/students" element={<StudentsData />} />
         <Route excart path="/profile" element={<CollegeProfile />} />
         <Route excart path="/projects" element={<Projects />} />
-        <Route excart path="/problems" element={<Problems/>}/>
+        <Route excart path="/problems" element={<Problems />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { MdNotificationsActive } from "react-icons/md";
 import LogoutButton from "./LogoutButton";
 
 const Navbar = () => {
@@ -13,11 +12,6 @@ const Navbar = () => {
     { name: "Register", href: "/student-registration" },
   ];
 
-  const profileNav = [
-    { name: "Profile", href: "/something" },
-    { name: "Something", href: "/algo" },
-  ];
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -27,6 +21,15 @@ const Navbar = () => {
   const closeDropdown = () => {
     setIsOpen(false);
   };
+
+  const location = useLocation();
+
+  if (location.pathname === "/register") {
+    return null; // Hide the navbar on the Register page
+  }
+  if (location.pathname === "/login") {
+    return null; // Hide the navbar on the Register page
+  }
 
   return (
     <div className="bg-gray-700">
@@ -74,7 +77,7 @@ const Navbar = () => {
               </div>
               <li>
                 <a
-                  href="#"
+                  href="/some"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   onClick={closeDropdown}
                 >
@@ -83,7 +86,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/some1"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   onClick={closeDropdown}
                 >
@@ -92,11 +95,11 @@ const Navbar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/some2"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   onClick={closeDropdown}
                 >
-                  Option 1
+                  <LogoutButton />
                 </a>
               </li>
             </ul>
