@@ -8,7 +8,8 @@ const Problems = () => {
 
   const [data,setData] = useState()
   const [status,setStatus] = useState(false)
-  const [sec,setSec] = useState('All')
+  const [sec,setSec] = useState('')
+  const [data1,setData1] = useState()
 
   useEffect(() =>{
     const callFunction =async () =>{
@@ -21,6 +22,7 @@ const Problems = () => {
             header:true,
             skipEmptyLines:true
         }).data
+        setData1(parseData)
         setData(parseData)
         parseData.sort((a, b) => a.sino - b.sino);
 
@@ -38,22 +40,41 @@ const Problems = () => {
     
    if(status){
         if(sec == 'Category'){
-            let list = data.filter(each =>{
+            let list = data1.filter(each =>{
                 if(each.Category != undefined && each.Category != []){
-                    each.Category.toLowerCase().includes(e.target.value.toLowerCase())
+                    return each.Category.toLowerCase().includes(e.target.value.toLowerCase())
                 }
             }
             )
-            console.log(list)
+            setData(list)
         }else{
-            let list = data.filter(each =>
-                each.Organization.toLowerCase().includes(e.target.value.toLowerCase()),
-            )
-            console.log(list)
+            let list = data1.filter(each =>{
+                if(each.Organization != undefined && each.Organization != []){
+                    return each.Organization.toLowerCase().includes(e.target.value.toLowerCase())
+                }
+            })
+            setData(list)
         }
     
    }
   }
+// Testing Code 
+//   const sendData = () =>{
+//     console.log('called')
+//     const url = 'http://localhost:3001/'
+//     fetch(url)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.json(); // Parse the response as JSON
+//     })
+//     .then((data) => {
+//       console.log(data); // Update the component's state with the fetched data
+//     })
+//     .catch((error) => console.error('Error:', error));
+
+//   }
 
 
   return(
@@ -61,6 +82,7 @@ const Problems = () => {
         <div style={{display:'flex',flexDirection:'column'}}>
             <h2 style={{textAlign:'center',color:'black',fontSize:'40px',fontStyle:'italic'}}>Problems</h2>
             <hr style={{backgroundColor:'black',height:'1px',width:'80%',alignSelf:'center'}} className="mt-3 "/>
+            {/* <button className="btn btn-primary" onClick={sendData}>Send</button> */}
         </div>
         <div style={{display:'flex'}}>
             <div style={{width:'20%'}}>
@@ -70,7 +92,7 @@ const Problems = () => {
                     <option>Category</option>
                     <option>Organization</option>
                 </select>
-                <input type="text" placeholder="Search" onChange={searchChange} className="form-control mt-3"/>
+                <input type="text" placeholder={`Search ${sec}`} onChange={searchChange} className="form-control mt-3"/>
             </div>
             <table
                 className="table table-hover mdc-data-table__table mt-5"
